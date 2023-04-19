@@ -7,7 +7,7 @@ maven 'maven'
 stages {
 stage("Git Checkout"){
 steps{
-git 'https://github.com/SaiRevanth-J/project-03-medicure.git'
+git 'https://github.com/Sathvikappu/project-03-medicure.git'
  }
  }
 stage('Build the application'){
@@ -26,15 +26,15 @@ stage('Docker build image') {
               steps {
                   
                   sh'sudo docker system prune -af '
-                  sh 'sudo docker build -t revanthkumar9/medicure:latest . '
+                  sh 'sudo docker build -t Sathvikappu/medicure:latest . '
               
                 }
             }
 stage('Docker login and push') {
               steps {
                    withCredentials([string(credentialsId: 'docpass', variable: 'docpasswd')]) {
-                  sh 'sudo docker login -u revanthkumar9 -p ${docpasswd} '
-                  sh 'sudo docker push revanthkumar9/medicure:latest'
+                  sh 'sudo docker login -u Sathvikappu -p ${docpasswd} '
+                  sh 'sudo docker push Sathvikappu/medicure:latest'
                   }
                 }
         }    
